@@ -1,0 +1,392 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen">
+    <title>Кухня</title>
+  </head>
+  <body>
+    <div class="k-page">
+    <div class="k-page__line">
+      <div class="k-menu">
+        <div class="k-menu__new">
+          <a href="#" class="k-link k-link_new">ВСЕ НОВИНКИ</a>
+        </div>
+        <div class="k-menu__rooms">
+          <a href="#" class="k-link k-link_menu">Гостиная</span></a>
+          <a href="#" class="k-link k-link_menu">Спальня</span></a>
+          <a href="#" class="k-link k-link_menu">Детская</a>
+          <a href="#" class="k-link k-link_menu k-link_menu_active">Кухня<span></a>
+          <a href="#" class="k-link k-link_menu">Оформление интерьера</a>
+          <a href="#" class="k-link k-link_menu">Серия ФЛИСАТ</a>
+          <a href="#" class="k-link k-link_menu">Серия ВАЛЛЕНТУНА</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="k-page__line">
+      <div class="k-scroll">
+      </div>
+    </div>
+
+    <div class="k-page__line">
+      <div class="k-page__header">Кухня</div>
+    </div>
+
+    <div class="k-page__line">
+      <div class="k-slider">
+        <div class="k-slider_opacity-none">
+        <div class="k-wrapper">
+            <img  class="k-slider__img left" src="images/ph1.png" width=703px height=526px>
+            <img  class="k-slider__img center" src="images/ph2.png" width=703px height=526px>
+            <img  class="k-slider__img right" src="images/ph3.png" width=703px height=526px>
+        </div>
+        <a href="" class="k-slider__nav prev">
+        <img class="k-slider__arr-prev-ell" src="images/arrow-prev-ell.png">
+        <img class="k-slider__arr-prev-rect" src="images/arrow-prev-rect.png" width=12px height=20px>
+        </a>
+        <a href="" class="k-slider__nav next">
+        <img class="k-slider__arr-next-ell" src="images/arrow-next-ell.png">
+        <img class="k-slider__arr-next-rect" src="images/arrow-next-rect.png"  width=12px height=20px>
+        </a>
+      </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".k-slider").each(function () { // обрабатываем каждый слайдер
+          var obj = $(this);
+          $(obj).append("<div class='nav'></div>");
+          $(obj).append("<div class='nav-2'></div>");
+          $(obj).find("li").each(function () {
+            $(obj).find(".nav").append("<span rel='"+$(this).index()+"'></span>");
+            $(obj).find(".nav-2").append("<span rel='"+$(this).index()+"'></span>");// добавляем блок навигации
+            $(this).addClass("slider"+$(this).index());
+          });
+          $(obj).find("span").first().addClass("on"); // делаем активным первый элемент меню
+        });
+      });
+      function sliderJS (obj, sl) { // slider function
+        var ul = $(sl).find("k-wrapper"); // находим блок
+        var bl = $(sl).find("li.slider"+obj); // находим любой из элементов блока
+        var step = $(bl).width(); // ширина объекта
+        $(ul).animate({marginLeft: "-"+step*obj}, 500); // 500 это скорость перемотки
+      }
+      $(document).on("click", ".slider .nav span", function() { // slider click navigate
+        var sl = $(this).closest(".slider"); // находим, в каком блоке был клик
+        $(sl).find("span").removeClass("on"); // убираем активный элемент
+        $(this).addClass("on"); // делаем активным текущий
+        var obj = $(this).attr("rel"); // узнаем его номер
+        sliderJS(obj, sl); // слайдим
+        return false;
+      });
+    </script>
+
+
+    <div class="k-page__line">
+      <div class="k-page__main">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="k-main__img">
+              <img src="images/ph136512.png" width="347" height="347">
+              <div class="k-main__sign_left">
+                <span class="name">КАЛЬВИА</span></br>
+                Кухонный фасад,</br>
+                с печатным рисунком</br>
+                <span class="price">3 500.–</span>
+              </div>
+            </div>
+            <div class="k-main__img">
+              <img src="images/ph136492.png" width="347" height="347">
+              <div class="k-main__sign_left">
+                <span class="name">БАРКАБУДА</span></br>
+                 Столешница</br>
+                <span class="price">14 999.–</span>
+              </div>
+            </div>
+            <div class="k-main__img">
+              <img src="images/ph132549.png" width="347" height="391">
+              <img class="k-main__img_signature" src="images/signature.png" width="196" height="43">
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="k-main__img">
+              <img src="images/ph135541.png" width="347" height="347">
+            </div>
+            <div class="k-main__text">
+              <p>
+              <span class="head-name">Столешница </br>БАРКАБУДА</br></span>
+              Поверхность столешницы изготовлена
+              </br>из прочного натурального материала
+               – массива дерева. Каждая столешница
+               уникальна – благодаря естественному
+                рисунку натуральной древесины
+                и вариативности ее оттенков.</p>
+            </div>
+            <div class="k-main__text">
+              <p>
+              <span class="head-name">СУННЕРСТА мини-кухня</span></br>
+              «Создавая мини-кухню <span class="name">СУННЕРСТА</span>,
+              я хотел призвать людей относиться
+              к приготовлению пищи проще.
+              Обустроить привлекательную и удобную
+              кухню можно даже на совсем небольшой
+              площади или, например, в офисе.
+              Кроме того, моя мини-кухня может
+              служить промежуточным решением
+              на время ремонта. Для хранения
+              кухонных мелочей используйте
+              пластиковые крючки и контейнеры,
+              а дополнительной рабочей поверхностью
+              может стать кухонная тележка. Надеюсь,
+              в такой обстановке готовить будет легче и веселее».</br></br>
+              <span class="name">Дизайнер Хенрик Пройц</span></br> <span class="country">(Швеция)</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="k-main__text">
+              <p>
+              <span class="head-name">Дополнительный </br>фасад КАЛЬВИА</span></br>
+              Добавьте всплеск моды на кухню
+                 с <span class="name">КАЛЬВИЯ</span>.
+                 Шесть различных мотивов взяты из одной картины и напечатаны
+                на высококачественных дверях ИКЕА
+            </p>
+            </div>
+            <img class="k-main__img eskelen" src="images/eskelen-mojka.png" width="216" height="207">
+            <div class="k-main__text">
+              <p>Мойки из кварцевого композита <span class="name">ЭСКЕЛЕН</span>
+                выдержат все испытания повседневного
+                использования благодаря устойчивости
+                к загрязнению и царапинам.</br>Даже красное вино,
+                кофе и тяжелые сковороды не оставят никаких следов.</p>
+            </div>
+            <div class="k-main__img">
+              <img src="images/ph138418.png" width="347" height="391">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="k-green-button">
+            <a href="#" class="k-green-button-text">Все кухни</a>
+            <a href="#"><img class="k-button-ellipse__img" src="images/ellipse-3.png" width="40" height="40"></a>
+            <a href="#"><img class="k-button-rect__img" src="images/rectangle-15.png" width="10" height="16"></a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <img src="images/ph136542.png" width="1060" height="580">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="k-main__text">
+              <p>Экономьте время и воду вместе
+                с аксессуарами для мойки <span class="name">ГРУНДВАТТНЕТ</span>, созданными
+                для комфортной и приятной
+                работы на кухне.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="k-main__img">
+              <img src="images/ph136509.png" width="347" height="347">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="k-main__img">
+              <img src="images/ph136567.png" width="347" height="347">
+              <div class="k-main__sign_right">
+                <span class="name">ГРУНДВАТТНЕТ</span></br>
+                Доска разделочная,</br>
+                серая
+                <span class="price">199.–</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="k-main__img">
+              <img  src="images/pe610994.png" width="347" height="347">
+              <div class="k-main__sign_left">
+                <span class="name">ЛИЛЛЬВИКЕН</span></br>
+                Крышка</br>
+                <span class="price">279.–</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="k-main__img">
+              <img src="images/ph136513.png" width="703" height="347">
+              <div class="k-main__sign_right">
+                <span class="name">ЛИЛЛЬВИКЕН</span></br>
+                Пробка для мойки</br>
+                <span class="price">299.–</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="k-main__img">
+              <img  src="images/ph136472.png" width="703" height="347">
+              <div class="k-main__sign_right">
+                <span class="name">ВАРДАГЕН</span></br>
+                Прямоугольная форма</br>
+                для духовки, темно-серый</br>
+                <span class="price">799.–</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="k-main__img">
+              <img src="images/ph136556.png" width="347" height="347">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="k-main__text">
+              <p>
+                <span class="head-name">Посуда</br>
+                для запекания</br> ВАРДАГЕН</span></br>
+                Готовьте и подавайте вкусные блюда</br>
+                и свежеиспеченные десерты в новой </br>
+                жаропрочной посуде <span class="name">ВАРДАГЕН</span> белого</br>
+                или серого цвета, а также в классических </br>белых формах для открытых пирогов.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="row">
+              <img src="images/vardagen.png">
+              <div class="k-main__text">
+                <p><span class="name">ВАРДАГЕН</span></br>
+                 Форма для духовки,</br>
+                 овал, белый с оттенком
+                <span class="price">499.–</span>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+                <img class="k-set-1__img" src="images/vector-smart-object.png">
+                <img class="k-set-1__img" src="images/vector-smart-object-2.png">
+                <img class="k-set-1__img" src="images/vector-smart-object-3.png">
+                <img class="k-set-1__img" src="images/vector-smart-object-4.png">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <img src="images/ph136478.png">
+          </div>
+          <div class="col-md-4">
+            <img src="images/ph136520.png">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="k-main__text">
+              <p>
+                Традиционная и долговечная посуда <span class="name">ВАРДАГЕН</span> идеальна в качестве
+                 базовой посуды в доме. Теперь в дополнение к белому,
+                 эта посуда доступна в темно-сером цвете, что особенно
+                 актуально в преддверии осени. В переводе со шведского
+                 <span class="name">ВАРДАГЕН</span> означает «каждый день», и именно так следует
+                 использовать эту посуду. В серию простой и прочной
+                 керамической посуды входят миски разных размеров,
+                 блюдо, тарелка, кружка, чашка и блюдце, а также чайник
+                  с кувшином белого цвета. Благодаря универсальному дизайну
+                   такую посуду можно использовать для различных целей —
+                   где бы вы ни жили. Например, в Азии маленькая миска
+                   пригодится для риса, а в других частях планеты она идеально
+                   подойдет для салата или каши.
+              </p>
+              <div class="k-green-button">
+                <a href="#" class="k-green-button-text">Коллекция ВАРДАГЕН</a>
+                <a href="#"><img class="k-button-ellipse__img" src="images/ellipse-3.png" width="40" height="40"></a>
+                <a href="#"><img class="k-button-rect__img" src="images/rectangle-15.png" width="10" height="16"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img src="images/ph136566.png">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <img src="images/ph137217.png">
+          </div>
+          <div class="col-md-4">
+              <div id="glass-image">
+                <img class="k-main__img-glass" src="images/orange.png" width="164" height="164">
+              </div>
+              <div class="k-main__text">
+                <p>
+                <span class="name">ПОББИГ</span></br>
+                Стакан,
+                <span id="glass-color">в полоску оранжевый</span>
+                  </br>
+                  <span class="price">79.–</span>
+                </p>
+              </div>
+              <div class="k-main__set-imgs">
+                <div id="pink-glass" class="image-cropper">
+                  <img class="k-pobbig__img" src="images/layer-97.png" width="74" height="74">
+                </div>
+                <div id="blue-glass" class="image-cropper">
+                 <img class="k-pobbig__img" src="images/layer-98.png" width="74" height="74">
+                </div>
+                <div id="orange-glass" class="image-cropper">
+                  <img class="k-pobbig__img" src="images/layer-99.png" width="74" height="74">
+                </div>
+                <div id="green-glass" class="image-cropper">
+                  <img class="k-pobbig__img" src="images/layer-100.png" width="74" height="74">
+                </div>
+              </div>
+          </div>
+        </div>
+          <script type="text/javascript">
+          $(document).ready(function(){
+            $("#pink-glass").click(function(){
+              $("#glass-color").text("розовый");
+              $("#glass-image").html('<img class="k-main__img-glass" src="images/pink.png" width="164" height="164">');
+            });
+            $("#blue-glass").click(function(){
+              $("#glass-color").text("синий");
+              $("#glass-image").html('<img class="k-main__img-glass" src="images/blue.png" width="164" height="164">');
+            });
+            $("#orange-glass").click(function(){
+              $("#glass-color").text("в полоску оранжевый");
+              $("#glass-image").html('<img class="k-main__img-glass" src="images/orange.png" width="164" height="164">');
+            });
+            $("#green-glass").click(function(){
+              $("#glass-color").text("в полоску зеленый");
+              $("#glass-image").html('<img class="k-main__img-glass" src="images/green.png" width="164" height="164">');
+            });
+          });
+          </script>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
