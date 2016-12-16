@@ -115,7 +115,7 @@ div.k-page {
   /*width: 2139px;*/
   width: 9999px;
   height: 526px;
-  margin-left: calc((100% - 2139px + 10px)/2);
+  margin-left: calc((100% - 2139px + 10px - 1426px)/2);
   position: relative;
 }
 
