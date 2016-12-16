@@ -173,32 +173,6 @@ div.k-slider__nav:hover  {
   right: calc(50% - 305px);
 }
 
-
-
-.k-slider ul, .k-slider li {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-}
-
-.k-slider ul {
-  width: 2109px;
-}
-
-.k-slider ul li {
-  list-style-type: none;
-  float: left;
-  /*width: 700px;
-  height: 290px;*/
-}
-
-
-
-
-
-
-
-
 div.k-page__main {
   width: 1060px;
   margin: 0 auto;
