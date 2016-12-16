@@ -12,32 +12,33 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script/app.js"></script>
     <link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen">
     <title>Кухня</title>
   </head>
   <body>
     <div class="k-page">
     <div class="k-page__line">
-      <div class="k-menu">
-        <div class="k-menu__new">
-          <a href="#" class="k-link k-link_new">ВСЕ НОВИНКИ</a>
+      <div class="k-pade__menu">
+        <div class="k-menu">
+          <div class="k-menu__new">
+            <a href="#" class="k-link_new">ВСЕ НОВИНКИ</a>
+          </div>
+          <div class="k-menu__rooms">
+            <a href="#" class="k-link k-link_menu">Гостиная</span></a>
+            <a href="#" class="k-link k-link_menu">Спальня</span></a>
+            <a href="#" class="k-link k-link_menu">Детская</a>
+            <a href="#" class="k-link k-link_menu k-link_menu_active">Кухня<span></a>
+            <a href="#" class="k-link k-link_menu">Оформление интерьера</a>
+            <a href="#" class="k-link k-link_menu">Серия ФЛИСАТ</a>
+            <a href="#" class="k-link k-link_menu">Серия ВАЛЛЕНТУНА</a>
+          </div>
         </div>
-        <div class="k-menu__rooms">
-          <a href="#" class="k-link k-link_menu">Гостиная</span></a>
-          <a href="#" class="k-link k-link_menu">Спальня</span></a>
-          <a href="#" class="k-link k-link_menu">Детская</a>
-          <a href="#" class="k-link k-link_menu k-link_menu_active">Кухня<span></a>
-          <a href="#" class="k-link k-link_menu">Оформление интерьера</a>
-          <a href="#" class="k-link k-link_menu">Серия ФЛИСАТ</a>
-          <a href="#" class="k-link k-link_menu">Серия ВАЛЛЕНТУНА</a>
+        <div class="k-scroll">
         </div>
       </div>
     </div>
 
-    <div class="k-page__line">
-      <div class="k-scroll">
-      </div>
-    </div>
 
     <div class="k-page__line">
       <div class="k-page__header">Кухня</div>
@@ -361,8 +362,8 @@
               <div class="k-main__text pobbig">
                 <p>
                 <span class="name">ПОББИГ</span></br>
-                Стакан,
-                <span id="glass-color">в полоску оранжевый</span>
+                Стакан,</br>
+                <span id="glass-color">оранжевый</span>
                   </br>
                   <span class="price">79.–</span>
                 </p>
@@ -394,11 +395,11 @@
               $("#glass-image").html('<img class="k-main__img-glass" src="images/blue.png" width="164" height="164">');
             });
             $("#orange-glass").click(function(){
-              $("#glass-color").text("в полоску оранжевый");
+              $("#glass-color").text("оранжевый");
               $("#glass-image").html('<img class="k-main__img-glass" src="images/orange.png" width="164" height="164">');
             });
             $("#green-glass").click(function(){
-              $("#glass-color").text("в полоску зеленый");
+              $("#glass-color").text("зеленый");
               $("#glass-image").html('<img class="k-main__img-glass" src="images/green.png" width="164" height="164">');
             });
           });
