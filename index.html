@@ -46,57 +46,63 @@
 
     <div class="k-page__line">
       <div class="k-slider">
-        <div class="k-slider_opacity-none">
-        <div class="k-wrapper">
-            <img  class="k-slider__img left" src="images/ph1.png" width=703px height=526px>
-            <img  class="k-slider__img center" src="images/ph2.png" width=703px height=526px>
-            <img  class="k-slider__img right" src="images/ph3.png" width=703px height=526px>
+        <div class="k-container">
+          <div class="k-slider__img">
+            <img src="images/ph1.png" width=703px height=526px>
+            <span class="k-slider__text">Серия ВОКСТОРП</span>
+          </div>
+          <div class="k-slider__img center">
+            <img src="images/ph2.png" width=703px height=526px>
+            <span class="k-slider__text">Серия КНОКСХУЛЬТ</span>
+          </div>
+          <div class="k-slider__img">
+            <img src="images/ph3.png" width=703px height=526px>
+            <span class="k-slider__text">Серия МЕТОД КАЛЛАРП</span>
+          </div>
         </div>
-        <a href="" class="k-slider__nav prev">
-        <img class="k-slider__arr-prev-ell" src="images/arrow-prev-ell.png">
-        <img class="k-slider__arr-prev-rect" src="images/arrow-prev-rect.png" width=12px height=20px>
-        </a>
-        <a href="" class="k-slider__nav next">
-        <img class="k-slider__arr-next-ell" src="images/arrow-next-ell.png">
-        <img class="k-slider__arr-next-rect" src="images/arrow-next-rect.png"  width=12px height=20px>
-        </a>
-      </div>
+        <div id="slider-prev" class="k-slider__nav">
+          <img class="k-slider__arr-prev-ell" src="images/arrow-prev-ell.png">
+          <img class="k-slider__arr-prev-rect" src="images/arrow-prev-rect.png" width=12px height=20px>
+        </div>
+        <div id="slider-next" class="k-slider__nav">
+          <img class="k-slider__arr-next-ell" src="images/arrow-next-ell.png">
+          <img class="k-slider__arr-next-rect" src="images/arrow-next-rect.png"  width=12px height=20px>
+        </div>
       </div>
     </div>
 
+
     <script type="text/javascript">
       $(document).ready(function() {
-        $(".k-slider").each(function () { // обрабатываем каждый слайдер
-          var obj = $(this);
-          $(obj).append("<div class='nav'></div>");
-          $(obj).append("<div class='nav-2'></div>");
-          $(obj).find("li").each(function () {
-            $(obj).find(".nav").append("<span rel='"+$(this).index()+"'></span>");
-            $(obj).find(".nav-2").append("<span rel='"+$(this).index()+"'></span>");// добавляем блок навигации
-            $(this).addClass("slider"+$(this).index());
-          });
-          $(obj).find("span").first().addClass("on"); // делаем активным первый элемент меню
+        var obj, obj_new, img_set;
+        $("#slider-prev").click(function(){
+          img_set = document.getElementsByClassName('k-slider__img');
+          obj = img_set[2];
+          $(img_set[1]).animate({opacity: '0.5'});
+          $(img_set[0]).animate({opacity: '1'});
+
+          $(".k-container").prepend(obj);
+          $(".k-container").css("margin-left", "-=713");
+          $(obj).animate({opacity: '0.5'});
+          $(".k-container").animate({left: '+=713'});
+          // $(obj).remove();
         });
-      });
-      function sliderJS (obj, sl) { // slider function
-        var ul = $(sl).find("k-wrapper"); // находим блок
-        var bl = $(sl).find("li.slider"+obj); // находим любой из элементов блока
-        var step = $(bl).width(); // ширина объекта
-        $(ul).animate({marginLeft: "-"+step*obj}, 500); // 500 это скорость перемотки
-      }
-      $(document).on("click", ".slider .nav span", function() { // slider click navigate
-        var sl = $(this).closest(".slider"); // находим, в каком блоке был клик
-        $(sl).find("span").removeClass("on"); // убираем активный элемент
-        $(this).addClass("on"); // делаем активным текущий
-        var obj = $(this).attr("rel"); // узнаем его номер
-        sliderJS(obj, sl); // слайдим
-        return false;
+        $("#slider-next").click(function(){
+          img_set = document.getElementsByClassName('k-slider__img');
+          obj = img_set[0];
+          $(img_set[1]).animate({opacity: '0.5'});
+          $(img_set[2]).animate({opacity: '1'});
+          $(obj).remove();
+          $(".k-container").append(obj);
+          $(obj).animate({opacity: '0.5'});
+          // $(".k-container").animate({left: '-=713'});
+        });
       });
     </script>
 
-
     <div class="k-page__line">
       <div class="k-page__main">
+
         <div class="row">
           <div class="col-md-4 horizontal-mode">
             <div class="k-main__img">
@@ -185,8 +191,8 @@
         <div class="row green-button__all-kit">
           <div class="k-green-button center">
             <a class="k-green-button_link" href="#">
-              <span class="k-green-button-text">Все кухни</span>
-              <div class="k-button-ellipse__img">
+              <span class="k-green-button-text">ВСЕ КУХНИ</span>
+              <div id="arrow-var-all-k" class="k-button-ellipse__img">
                 <img src="images/ellipse-3.png" width="40" height="40">
                 <img class="k-button-rect__img" src="images/rectangle-15.png" width="10" height="16">
               </div>
@@ -339,7 +345,7 @@
             <div class="k-green-button vardagen">
               <a class="k-green-button_link" href="#">
                 <span class="k-green-button-text">Коллекция ВАРДАГЕН</span>
-                <div class="k-button-ellipse__img">
+                <div id="arrow-var" class="k-button-ellipse__img">
                   <img src="images/ellipse-3.png" width="40" height="40">
                   <img class="k-button-rect__img" src="images/rectangle-15.png" width="10" height="16">
                 </div>
@@ -350,6 +356,22 @@
             <img src="images/ph136566.png">
           </div>
         </div>
+        <script type="text/javascript">
+        $(document).ready(function(){
+          $(".k-green-button").mouseenter(function(){
+            $(".k-button-ellipse__img").animate({
+              left: '+=10px',
+              opacity: '0.3'
+            });
+            $(".k-green-button-text").animate({opacity: '0.5'})
+            $(".k-button-ellipse__img").animate({
+              left: '-=10px',
+              opacity: '1'
+            });
+            $(".k-green-button-text").animate({opacity: '1'})
+          });
+        });
+        </script>
 
         <div class="row">
           <div class="col-md-8 horizontal-mode">

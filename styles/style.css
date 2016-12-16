@@ -28,7 +28,6 @@ div.k-page {
 
 .k-page__menu {
   width: 100%;
-  position: fixed;
 }
 
 .k-menu {
@@ -36,7 +35,6 @@ div.k-page {
   height: 70px;
   margin: 0 auto;
   padding: 0;
-  position: fixed;
   z-index: 20;
 }
 
@@ -66,7 +64,6 @@ div.k-page {
 
 .k-link:hover{
   color: #78be20;
-  font-weight: 700;
 }
 
 .k-link_menu {
@@ -84,15 +81,12 @@ div.k-page {
   font-weight: 700;
 }
 
-
 .k-scroll {
-  /*width: calc((1100/1366)*100%);*/
   width: 1100px;
   height: 3px;
   background-color: #ededed;
   margin: auto;
   padding: 0;
-  position: fixed;
 }
 
 .k-page__header {
@@ -106,6 +100,8 @@ div.k-page {
 }
 
 
+
+
 .k-slider {
   z-index: 9;
   width: 100%;
@@ -113,46 +109,43 @@ div.k-page {
   overflow: hidden;
   margin: 0 auto 36px;
   position: relative;
-  /*opacity: 0.5;*/
 }
 
-.k-slider_opacity-none {
-  /*z-index: 9;
-  width: 703px;
-  height: 526px;
-  opacity: 1;*/
-}
-
-.k-wrapper {
-  width: 2139px;
+.k-container {
+  /*width: 2139px;*/
+  width: 9999px;
   height: 526px;
   margin-left: calc((100% - 2139px + 10px)/2);
+  position: relative;
 }
 
 .k-slider__img {
   margin-right: 10px;
   float: left;
-  overflow: hidden;
-}
-
-.left{
-  /*opacity: 0.5;*/
-}
-
-.right {
-  /*opacity: 0.5;*/
-  margin-right: 0;
-}
-
-.center {
-
-}
-
-a.k-slider__nav  {
+  position: relative;
   opacity: 0.5;
 }
 
-a.k-slider__nav:hover  {
+.k-slider__img.center {
+  opacity: 1;
+}
+
+.k-slider__text {
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  position: absolute;
+  bottom: 41px;
+  text-align: center;
+  width: 100%;
+}
+
+div.k-slider__nav  {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+div.k-slider__nav:hover  {
   opacity: 1;
 }
 
@@ -180,6 +173,8 @@ a.k-slider__nav:hover  {
   right: calc(50% - 305px);
 }
 
+
+
 .k-slider ul, .k-slider li {
   padding: 0;
   margin: 0;
@@ -197,41 +192,8 @@ a.k-slider__nav:hover  {
   height: 290px;*/
 }
 
-.slider .nav {
-position: absolute;
-left: 15px;
-bottom: 12px;
-}
-.slider .nav span {
-opacity: 0.2;
-background: #fff;
-margin: 0 8px 0 0;
-width: 56px;
-height: 56px;
-border-radius: 50px;
-cursor: pointer;
-overflow: hidden;
-display: block;
-float: left;
-/*box-shadow: 0 1px 2px #000;*/
-}
 
-.slider .nav-2 span {
-opacity: 0;
-background: #fff;
-margin: 0 8px 0 0;
-width: 53px;
-height: 53px;
-border-radius: 50px;
-cursor: pointer;
-overflow: hidden;
-display: block;
-float: left;
-/*box-shadow: 0 1px 2px #000;*/
-}
-.slider .nav span.on {
-background: blue;
-}
+
 
 
 
@@ -383,11 +345,13 @@ div.row.green-button__all-kit {
 .col-md-4 {
   padding: 0px;
   max-width: 347px;
+  float: left;
 }
 
 .col-md-8 {
   padding: 0;
   max-width: 703px;;
+  float: left;
 }
 
 .col-md-12 {
@@ -431,30 +395,14 @@ div.k-button-ellipse__img {
 .k-button-rect__img {
   position: absolute;
   top: 12px;
-  bottom: 12px;
   left: 16px;
-  right: 14px;
 }
-
-/*a.k-green-button_link {
-  opacity: 0.5;
-}
-
-a.k-green-button_link:hover {
-  opacity: 1;
-}*/
-
 
 img.k-main__set-vardagen {
   margin-right: 23px;
   float: none;
   vertical-align: baseline;
 }
-
-
-
-
-
 
 .k-main__img-glass{
   float: none;
@@ -482,6 +430,7 @@ div.image-cropper {
   border-radius: 50%;
   border: 1px solid #d8d8d8;
   float: left;
+  cursor: pointer;
 }
 
 #green-glass {
