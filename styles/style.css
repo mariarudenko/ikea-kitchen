@@ -236,26 +236,32 @@ div.k-main__text {
   line-height: 20px;
 }
 
+div.k-main__text p{
+  padding-top: 0.40em;
+}
+
 div.k-main__text.barkabuda {
   height: 347px;
   padding-top: 20%;
-  padding-left: 1em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
 }
 
 div.k-main__text.sunnersta {
   height: 391px;
-  padding-left: 1em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
 }
 
 div.k-main__text.kalvia {
   height: 284px;
-  padding-top: 10%;
-  padding-left: 1em;
+  padding-top: 20%;
+  padding-left: 1.5em;
 }
 
 div.k-main__text.eskelen {
   height: 203px;
-  padding-left: 1em;
+  padding-left: 1.5em;
 }
 
 div.k-main__text.graundvattnet {
